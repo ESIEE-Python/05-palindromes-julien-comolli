@@ -1,19 +1,25 @@
-#### Fonction secondaire
-
+"""
+Module palindrôme.
+"""
 
 def ispalindrome(p):
+    """
+    Retourne vrai si la chaîne spécifiée est un palindrôme.
+    """
+    reverse = p[::-1].lower()
+    tr = reverse.maketrans("àâäçéèêëîïôöùûüÿ", "aaaceeeeiioouuuy", " '-?!;,.:")
 
-    # votre code ici
-    
+    print(reverse)
+    print(p.lower().translate(tr))
+    if p.lower().translate(tr) == reverse.translate(tr):
+        return True
     return False
-
-#### Fonction principale
 
 
 def main():
-
-    # vos appels à la fonction secondaire ici
-
+    """
+    Fonction principale.
+    """
     for s in ["radar", "kayak", "level", "rotor", "civique", "deifie"]:
         print(s, ispalindrome(s))
 
